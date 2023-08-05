@@ -12,7 +12,8 @@
     font-family: 'Ubuntu', sans-serif;
 }
 :root {
-    --marine-blue: #02295a;
+    --marine-blue: #03326b;
+    --marine-light-blue: #0756b8;
     --purplish-blue: #473dff;
     --pastel-blue: #adbeff;
     --light-blue: #bfe2fd;
@@ -22,4 +23,20 @@
     --light-gray: #d6d9e6;
     --extra-light-gray: #f0f6ff;
     --white: #ffffff;
-    }
+}
+
+/* container-01 */
+
+.all-input::-webkit-outer-spin-button,
+.all-input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.all-input:focus {
+    border-color: var(--purplish-blue);
+}
+
+.all-label:has(+ .all-input:focus) {
+    color: var(--purplish-blue);
+}

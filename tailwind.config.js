@@ -24,7 +24,8 @@ module.exports = {
       },
 
       colors: {
-        'Marine-blue': "#02295a",
+        'Marine-blue': "#03326b",
+        'marine-light-blue': "#0756b8",
         'Purplish-blue': "#473dff",
         'Pastel-blue': "#adbeff",
         'Light-blue': "#bfe2fd",
@@ -35,6 +36,7 @@ module.exports = {
        'extra-light-gray': "#f0f6ff",
         'white': "#ffffff",
       },
+
     },
   },
   plugins: [],
