@@ -6,8 +6,8 @@ module.exports = {
   theme: {
     extend: {
       backgroundImage: {
-        'sidebar-desktop': "url('../public/images/bg-sidebar-desktop.svg')",
-        'sidebar-mobile': "url('../public/images/bg-sidebar-mobile.svg')",
+        'sidebar-desktop': "url('../src/images/bg-sidebar-desktop.svg')",
+        'sidebar-mobile': "url('../src/images/bg-sidebar-mobile.svg')",
       },
 
       textColor: {
