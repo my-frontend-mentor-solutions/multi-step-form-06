@@ -15,15 +15,14 @@ export default function Content03() {
 const AddOns = (props) => {
     return (
         <div className='flex flex-row px-3 py-[10px] my-[6px] border-solid border-light-gray border-[2px] rounded-lg justify-between items-center hover:border-marine-light-blue hover:cursor-pointer hover:bg-extra-light-gray duration-200'>
-            <div className='flex flex-row'>
-                 <input type="checkbox" className=''/>
+            <div className='flex flex-row '>
 
-                <label class="container">
-                    <input type="checkbox" checked="checked" />
+                <label class="checkbox-container">
+                    <input type="checkbox" className='checkbox'/>
                     <span class="checkmark"></span>
                 </label>
 
-                <div className='flex flex-col ml-4'>
+                <div className='flex flex-col ml-7'>
                     <p className='font-medium'>{props.heading}</p>
                     <p className='text-[13px] text-cool-gray'>{props.headingDescription}</p>
                 </div>
