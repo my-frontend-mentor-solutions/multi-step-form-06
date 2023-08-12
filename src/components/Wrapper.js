@@ -4,7 +4,7 @@ import StepsContainer from './StepsContainer'
 
 export default function Wrapper() {
   return (
-    <div className='w-1/2 h-auto bg-white rounded-xl flex flex-row p-[14px]'>
+    <div className='h-auto w-full lg:bg-white lg:rounded-lg flex lg:w-1/2  lg:flex-row lg:p-[14px] flex-col p-0'>
       <StepsContainer/>
       <ContentContainer/>
     </div>

@@ -37,8 +37,8 @@
     border-color: var(--purplish-blue);
 }
 
-.all-label:has(+ .all-input:focus) {
-    color: var(--purplish-blue);
+.label-wrapper:focus-within .all-label {
+  color: var(--purplish-blue);
 }
 
 /*---------------------------- Content02 --------------------------------------*/
@@ -96,7 +96,7 @@
   .checkbox-container {
     display: block;
     position: relative;
-    padding-left: 10px;
+    padding-left: 8px;
     margin-top: 10px;
     cursor: pointer;
     font-size: 20px;
@@ -104,14 +104,15 @@
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
+    pointer-events: none;
   }
   
   .checkbox {
     position: absolute;
     opacity: 0;
     cursor: pointer;
-    height: initial;
-    width: initial;
+    height: 0;
+    width: 0;
   }
   
   .checkmark {

@@ -6,11 +6,11 @@ import { BrowserRouter } from 'react-router-dom';
 
 const root = ReactDOM.createRoot(document.getElementById('form-container'));
 root.render(
-  <BrowserRouter>
-    <React.StrictMode>
-      <Container/>
-    </React.StrictMode>
-  </BrowserRouter>
+    <BrowserRouter>
+        <React.StrictMode>
+            <Container />
+        </React.StrictMode>
+    </BrowserRouter>
 );
 
 reportWebVitals();

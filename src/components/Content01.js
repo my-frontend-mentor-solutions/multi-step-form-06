@@ -1,7 +1,9 @@
 import React from 'react'
+import ButtonDiv from './ButtonDiv';
+import HeadingDiv from './HeadingDiv';
 
 export default function Content01() {
-    
+
 
   const nameInputValidator = (value) => {
 
@@ -10,32 +12,81 @@ export default function Content01() {
     }
   }
 
+  const emailInputValidator = (value) => {
+
+  }
+
+  const numberInputValidator = (value) => {
+
+  }
+
   return (
-    <div className='px-7 flex flex-col'>  
+    <>
+      <HeadingDiv title={"Personal Info"} desc={"Please provide your name, email address and phone number."} />
 
-        <InputDiv inputId="name-input" labelName="Name" inputType="text" placeholder="Your Name" onInputListener={(event) => nameInputValidator(event.target.value) }/>
-        <InputDiv inputId="email-input" labelName="Email Address" inputType="email" placeholder="you@example.com"/>
-        <InputDiv inputId="number-input" labelName="Phone Number" inputType="number" placeholder="12345 12345"/>
+      <div className='flex flex-col lg:mx-10 mx-7'>
 
-    </div>
+        <InputDiv inputCategory={InputCategory.TEXT} onInputListener={(event) => nameInputValidator(event.target.value)} />
+        <InputDiv inputCategory={InputCategory.EMAIL} onInputListener={(event) => emailInputValidator(event.target.value)} />
+        <InputDiv inputCategory={InputCategory.NUMBER} onInputListener={(event) => numberInputValidator(event.target.value)} />
+
+      </div>
+
+      <ButtonDiv nextRoute={"plans"} />
+    </>
   )
+}
+
+const InputCategory = {
+  TEXT: "TEXT",
+  EMAIL: "EMAIL",
+  NUMBER: "NUMBER"
+}
+
+const InputType = {
+  TEXT: "text",
+  EMAIL: "email",
+  NUMBER: "number"
+}
+
+const InputId = {
+  TEXT: "name-input",
+  EMAIL: "email-input",
+  NUMBER: "number-input"
+}
+
+const LabelName = {
+  TEXT: "Name",
+  EMAIL: "Email Address",
+  NUMBER: "Phone Number"
+}
+
+const InputPlaceholder = {
+  TEXT: "Your Name",
+  EMAIL: "you@example.com",
+  NUMBER: "12345 12345"
 }
 
 const InputDiv = (props) => {
 
   return (
-      <div className='flex flex-col my-[10px]'>
-          <label htmlFor={props.inputId} className='all-label font-[500] duration-200'>{props.labelName}</label>
-          <input
-          type={props.inputType}
-          id={props.inputId}
-          className='all-input rounded-[7px] border-[2px] border-solid border-cool-gray p-[10px] px-[14px] text-[15px] outline-[none] outline-0 duration-200'
+
+      <div className='label-wrapper flex flex-row justify-between flex-wrap my-[10px]'>
+
+        <label htmlFor={InputId[props.inputCategory]} className='all-label text-[15px] font-[500] duration-200 w-2/5 pl-1'>{LabelName[props.inputCategory]}</label>
+        <p className='text-[13px] text-strawberry-red w-3/5 text-right pr-1'></p>
+
+        <input
+          type={InputType[props.inputCategory]}
+          id={InputId[props.inputCategory]}
+          className='all-input rounded-[7px] border-[2px] border-solid border-cool-gray p-[8px] px-[14px] text-[15px] outline-[none] outline-0 duration-200 w-full'
           onInput={(event) => {
-            if(props.onInputListener) {
-                props.onInputListener(event)
+            if (props.onInputListener) {
+              props.onInputListener(event)
             }
           }}
-          placeholder={props.placeholder}/>
+          placeholder={InputPlaceholder[props.inputCategory]}
+        />
       </div>
   )
 };

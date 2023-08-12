@@ -2,9 +2,9 @@ import React from 'react'
 
 export default function HeadingDiv(props) {
   return (
-    <div className='flex flex-col mb-[14px] mx-7'>
-        <p className='text-[26px] font-bold'>{props.heading}</p>
-        <p className='text-[14px] text-cool-gray'>{props.headingDescription}</p>
+    <div className='flex flex-col lg:m-0 lg:mb-8 lg:mx-10 m-7 '>
+        <p className='lg:text-[26px] text-[28px] font-bold'>{props.title}</p>
+        <p className='lg:text-[14px] text-[13px] text-cool-gray'>{props.desc}</p>
     </div>
   )
 }

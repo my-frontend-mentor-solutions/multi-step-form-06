@@ -1,20 +1,29 @@
 import React from 'react'
+import { Link } from 'react-router-dom';
+import HeadingDiv from './HeadingDiv';
+import ButtonDiv from './ButtonDiv';
 
 export default function Content04() {
-  return (
-    <div className='px-7 flex flex-col'>
-        <SummaryDiv  />
-    </div>
-  )
+    return (
+        <>
+            <HeadingDiv title={"Finishing Up"} desc={"Double-check everything looks OK before confirming."} />
+            <div className='lg:m-0 lg:mx-10 m-7 flex flex-col'>
+                <SummaryDiv />
+            </div>
+            <ButtonDiv prevRoute nextRoute={"thankyou"} final />
+        </>
+    )
 }
 
 const SummaryDiv = () => {
     return (
         <div className='flex flex-col bg-extra-light-gray rounded-lg px-5 text-Marine-blue'>
+
+
             <div className='flex flex-row justify-between items-center py-4'>
                 <div className='flex flex-col'>
                     <p className='font-bold text-[14px]'>Arcade (Monthly)</p>
-                    <p className='text-[13px] underline text-marine-light-blue hover:cursor-pointer'>Change</p>
+                    <Link className='text-[13px] underline text-marine-light-blue hover:cursor-pointer' to="/plans" >Change</Link>
                 </div>
                 <p className='font-bold text-[15px]'>₹119/month</p>
             </div>
@@ -37,6 +46,8 @@ const SummaryDiv = () => {
                 <p className='text-Marine-blue text-[15px]'>Total(per month)</p>
                 <p className='text-Purplish-blue font-bold text-[16px]'>+₹187/month</p>
             </div>
+
+
         </div>
     )
 };

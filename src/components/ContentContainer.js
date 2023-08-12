@@ -4,29 +4,21 @@ import Content02 from './Content02'
 import Content03 from './Content03'
 import Content04 from './Content04'
 import Content05 from './Content05'
-import HeadingDiv from './HeadingDiv'
-import ButtonDiv from './ButtonDiv'
 import { Routes, Route } from 'react-router-dom'
 
 export default function ContentContainer() {
-  
-  // const headingTitle = ["","","",""];
-  // const headingDesc = ["","","",""];
 
   return (
-    <div className='flex-[7] p-5'>
-      <HeadingDiv heading="Personal Info" headingDescription="Please provide your name, email address and phone number." />
-      
-      <Routes>
-        <Route path={'/'} index element={<Content01/>} />
-        <Route path={'/plans'} element={<Content02/>} />
-        <Route path={'/addons'} element={<Content03/>} />
-        <Route path={'/summary'} element={<Content04/>} />
-        <Route path={'/thankyou'} element={<Content05/>} />
-      </Routes>
-     
+    <div className='lg:flex-[7] lg:m-0 lg:my-5 lg:px-7 lg:static bg-white absolute top-[80px] h-full w-full '>
 
-      <ButtonDiv leftBtn="Previous Step" rightBtn="Next Step" />
+      <Routes>
+        <Route path={'/'} index element={<Content01 />} />
+        <Route path={'/plans'} element={<Content02 />} />
+        <Route path={'/addons'} element={<Content03 />} />
+        <Route path={'/summary'} element={<Content04 />} />
+        <Route path={'/thankyou'} element={<Content05 />} />
+      </Routes>
+
     </div>
   )
 }
