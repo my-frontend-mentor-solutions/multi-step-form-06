@@ -84,7 +84,7 @@ const AddOns = (props) => {
 
     return (
         <div
-            className={`flex flex-row px-3 py-[10px] my-[6px] border-solid ${borderColor} ${backColor} border-[2px] rounded-lg justify-between items-center hover:bg-extra-light-gray hover:cursor-pointer`}
+            className={`flex flex-row lg:px-3 px-2 py-[12px] my-[6px] border-solid ${borderColor} ${backColor} border-[2px] rounded-lg justify-between items-center hover:bg-extra-light-gray hover:cursor-pointer`}
             onClick={() => props.clickListener(props.addonType)}
         >
             <div className='flex flex-row '>
@@ -96,11 +96,11 @@ const AddOns = (props) => {
 
                 <div className='flex flex-col lg:ml-7 ml-5'>
                     <p className='font-medium lg:text-[16px] text-[15px]'>{AddonName[props.addonType]}</p>
-                    <p className='lg:text-[13px] text-cool-gray text-[12px]'>{AddonDesc[props.addonType]}</p>
+                    <p className='lg:text-[13px] text-cool-gray text-[11px]'>{AddonDesc[props.addonType]}</p>
                 </div>
             </div>
 
-            <p className='lg:text-[14px] text-[13px] text-marine-light-blue font-medium'>{AddonAmount[props.addonType]}</p>
+            <p className='lg:text-[14px] text-[12px] text-marine-light-blue font-medium'>{AddonAmount[props.addonType]}</p>
         </div>
     )
 };

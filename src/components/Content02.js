@@ -8,6 +8,7 @@ import HeadingDiv from './HeadingDiv';
 
 export default function Content02() {
     const [selectedPlan, setSelectedPlan] = useState("");
+    const [isYearlyBilling, setIsYearlyBilling] = useState(false);
 
     const planClickListener = (planType) => {
         selectedPlan === planType ? setSelectedPlan("") : setSelectedPlan(planType);
@@ -23,18 +24,21 @@ export default function Content02() {
                     <PlansDiv
                         planType={PlanType.ARCADE}
                         selected={selectedPlan}
+                        yearlyBilling={isYearlyBilling}
                         clickListener={(planType) => planClickListener(planType)}
                     />
 
                     <PlansDiv
                         planType={PlanType.ADVANCED}
                         selected={selectedPlan}
+                        yearlyBilling={isYearlyBilling}
                         clickListener={(planType) => planClickListener(planType)}
                     />
 
                     <PlansDiv
                         planType={PlanType.PRO}
                         selected={selectedPlan}
+                        yearlyBilling={isYearlyBilling}
                         clickListener={(planType) => planClickListener(planType)}
                     />
 
@@ -44,7 +48,7 @@ export default function Content02() {
 
                     <p>Monthly</p>
                     <label className="switch">
-                        <input type="checkbox" className='switch-input' />
+                        <input type="checkbox" className='switch-input' onChange={(event) => setIsYearlyBilling(event.target.checked)} />
                         <span className="slider round"></span>
                     </label>
                     <p>Yearly</p>
@@ -70,10 +74,16 @@ const PlanName = {
     PRO: "Pro"
 }
 
-const PlanAmount = {
-    ARCADE: "₹119/month",
-    ADVANCED: "₹179/month",
-    PRO: "₹249/month"
+const MonthlyBill = {
+    ARCADE: 119,
+    ADVANCED: 179,
+    PRO: 249
+}
+
+const YearlyBill = {
+    ARCADE: 1190,
+    ADVANCED: 1790,
+    PRO: 2490
 }
 
 const PlanImage = {
@@ -88,18 +98,20 @@ const PlansDiv = (props) => {
     const isSelected = props.selected === props.planType;
     const borderColor = isSelected ? "border-marine-light-blue" : "border-light-gray";
     const backgroundColor = isSelected ? "bg-extra-light-gray" : "bg-white";
+   
+    const billAmount = props.yearlyBilling ? YearlyBill[props.planType] : MonthlyBill[props.planType];
 
     return (
         <div
             id='plans-div'
-            className={`rounded-lg ${borderColor} ${backgroundColor} border-solid border-[2px] lg:p-3 p-5 w-full lg:m-0 lg:mx-1 my-1 hover:bg-extra-light-gray hover:cursor-pointer duration-200 lg:block flex `}
+            className={`rounded-lg ${borderColor} ${backgroundColor} border-solid border-[2px] lg:p-3 p-4 w-full lg:m-0 lg:mx-1 my-1 hover:bg-extra-light-gray hover:cursor-pointer duration-200 lg:block flex `}
             onClick={() => props.clickListener(props.planType)}
         >
             <img src={PlanImage[props.planType]} alt="" />
 
             <div className='lg:m-0 ml-5'>
                 <p className=' font-medium lg:mt-10 m-0'>{PlanName[props.planType]}</p>
-                <p className='text-[13px] text-cool-gray'>{PlanAmount[props.planType]}</p>
+                <p className='text-[13px] text-cool-gray'>₹{billAmount}/{props.yearlyBilling ? "year" : "month"}</p>
             </div>
         </div>
     )

@@ -11,6 +11,7 @@
     box-sizing: border-box;
     font-family: 'Ubuntu', sans-serif;
 }
+
 :root {
     --marine-blue: #03326b;
     --marine-light-blue: #0756b8;
@@ -38,7 +39,7 @@
 }
 
 .label-wrapper:focus-within .all-label {
-  color: var(--purplish-blue);
+    color: var(--purplish-blue);
 }
 
 /*---------------------------- Content02 --------------------------------------*/
@@ -48,15 +49,15 @@
     width: 44px;
     height: 22px;
     margin: 0 20px;
-  }
-  
-  .switch input {
+}
+
+.switch input {
     opacity: 0;
     width: 0;
     height: 0;
-  }
-  
-  .slider {
+}
+
+.slider {
     position: absolute;
     cursor: pointer;
     top: 0;
@@ -69,9 +70,9 @@
     background-color: var(--marine-blue);
     border-radius: 34px;
 
-  }
-  
-  .slider:before {
+}
+
+.slider:before {
     position: absolute;
     content: "";
     height: 14px;
@@ -82,18 +83,18 @@
     -webkit-transition: .3s;
     transition: .3s;
     border-radius: 50%;
-    
-  }
-  
-  .switch-input:checked + .slider:before {
+
+}
+
+.switch-input:checked+.slider:before {
     -webkit-transform: translateX(20px);
     -ms-transform: translateX(20px);
     transform: translateX(20px);
-  }
+}
 
-  /*---------------------------- Content03 --------------------------------*/
+/*---------------------------- Content03 --------------------------------*/
 
-  .checkbox-container {
+.checkbox-container {
     display: block;
     position: relative;
     padding-left: 8px;
@@ -105,17 +106,17 @@
     -ms-user-select: none;
     user-select: none;
     pointer-events: none;
-  }
-  
-  .checkbox {
+}
+
+.checkbox {
     position: absolute;
     opacity: 0;
     cursor: pointer;
     height: 0;
     width: 0;
-  }
-  
-  .checkmark {
+}
+
+.checkmark {
     border-radius: 5px;
     position: absolute;
     top: 0;
@@ -124,24 +125,40 @@
     width: 20px;
     background-color: #f5f5f5;
     box-shadow: 0 0 0 1px #0000006b;
-  }
+}
 
-  
-  .checkbox:checked ~ .checkmark {
+@media (max-width: 1024px) {
+
+    .checkmark {
+        height: 15px;
+        width: 15px;
+        border-radius: 4px;
+    }
+
+    .checkbox-container .checkmark:after {
+        left: 5px;
+        top: 2px;
+        width: 5px;
+        height: 9px;
+    }
+}
+
+
+.checkbox:checked~.checkmark {
     background-color: var(--marine-light-blue);
-  }
-  
-  .checkmark:after {
+}
+
+.checkmark:after {
     content: "";
     position: absolute;
     display: none;
-  }
-  
-  .checkbox:checked ~ .checkmark:after {
+}
+
+.checkbox:checked~.checkmark:after {
     display: block;
-  }
-  
-  .checkbox-container .checkmark:after {
+}
+
+.checkbox-container .checkmark:after {
     left: 8px;
     top: 4px;
     width: 5px;
@@ -151,4 +168,4 @@
     -webkit-transform: rotate(45deg);
     -ms-transform: rotate(45deg);
     transform: rotate(45deg);
-  }
+}

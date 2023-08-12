@@ -9,7 +9,7 @@ import { Routes, Route } from 'react-router-dom'
 export default function ContentContainer() {
 
   return (
-    <div className='lg:flex-[7] lg:m-0 lg:my-5 lg:px-7 lg:static bg-white absolute top-[80px] h-full w-full '>
+    <div className='lg:flex-[7] lg:m-0 lg:my-5 lg:px-7 lg:static lg:bg-transparent bg-white absolute top-[80px] w-auto h-auto m-4 rounded-lg py-5'>
 
       <Routes>
         <Route path={'/'} index element={<Content01 />} />
