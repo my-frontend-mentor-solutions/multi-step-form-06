@@ -45,7 +45,7 @@ export default function Content04({ selectedPlan, isYearlyBilling, selectedAddon
 
                     <div className='flex flex-row justify-between items-center py-4'>
                         <p className='text-Marine-blue text-[15px]'>Total (per {billingCycle})</p>
-                        <p className='text-Purplish-blue font-bold text-[16px]'>+₹{totalPrice}/{billingCycle}</p>
+                        <p className='text-purplish-blue font-bold text-[16px]'>+₹{totalPrice}/{billingCycle}</p>
                     </div>
 
                 </div>
