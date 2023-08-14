@@ -135,7 +135,7 @@
         border-radius: 4px;
     }
 
-    .checkbox-container .checkmark:after {
+     .checkmark:after {
         left: 5px;
         top: 2px;
         width: 5px;

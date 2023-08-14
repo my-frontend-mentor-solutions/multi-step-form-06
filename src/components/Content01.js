@@ -25,12 +25,9 @@ export default function Content01() {
     }
 
     const numberInputValidator = (value) => {
-
         value.trim() === "" ? setNumberError("Can't be empty") :  setNumberError("");
         value.length < 10 ? setNumberError("Invalid Number") :  setNumberError("");
-        
     }
-
     return (
         <>
             <HeadingDiv title={"Personal Info"} desc={"Please provide your name, email address and phone number."} />
@@ -43,7 +40,7 @@ export default function Content01() {
 
             </div>
 
-            <ButtonDiv prevRoute initial nextRoute={"plans"} />
+            <ButtonDiv prevRoute initial nextRoute={"plans"}/>
         </>
     )
 }

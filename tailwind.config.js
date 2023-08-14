@@ -36,7 +36,7 @@ module.exports = {
        'extra-light-gray': "#f0f6ff",
         'white': "#ffffff",
       },
-
+      
     },
   },
   plugins: [],

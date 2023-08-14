@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import ButtonDiv from './ButtonDiv';
 import HeadingDiv from './HeadingDiv';
 import { PlanType, PlanName, MonthlyBill, YearlyBill, PlanImage } from "../util/PriceUtil.js";
@@ -6,8 +6,11 @@ export default function Content02(
     { selectedPlan, setSelectedPlan, isYearlyBilling, setIsYearlyBilling }
 ) {
 
-    const showError = () => {
-        alert("Plan not selected");
+    const [errorText, setErrorText] = useState("");
+
+    const showError = (value) => {
+        value ? setErrorText("") : setErrorText("Please select a Plan to proceed!");
+
     }
 
     const planClickListener = (planType) => {
@@ -55,13 +58,13 @@ export default function Content02(
 
                 </div>
 
+                <div className='w-full justify-center flex items-center text-[15px] text-strawberry-red mt-3'>
+                    <p className='h-[15px]'>{errorText}</p>
+                </div>
+
             </div>
 
-            <ButtonDiv prevRoute validate expectedData={selectedPlan} isReadyListener={(ready) => {
-                if (!ready) {
-                    showError();
-                }
-            } } nextRoute={"addons"} />
+            <ButtonDiv prevRoute validate expectedData={selectedPlan} isReadyListener={(ready) => showError(ready) } nextRoute={"addons"} />
         </>
     )
 }
