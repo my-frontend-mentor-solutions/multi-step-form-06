@@ -82,7 +82,7 @@ const InputDiv = (props) => {
 
     return (
 
-        <div className='label-wrapper flex flex-row justify-between flex-wrap my-[10px]'>
+        <div className='label-wrapper flex flex-row justify-between flex-wrap my-[8px]'>
 
             <label htmlFor={InputId[props.inputCategory]} className='all-label text-[15px] font-[500] duration-200 w-2/5 pl-1'>{LabelName[props.inputCategory]}</label>
             <p className='text-[13px] text-strawberry-red w-3/5 text-right pr-1'>{props.errorLabel}</p>

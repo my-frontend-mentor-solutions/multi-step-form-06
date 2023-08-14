@@ -1,11 +1,10 @@
 import React from 'react'
-import { useState } from 'react'
 import HeadingDiv from './HeadingDiv'
 import ButtonDiv from './ButtonDiv'
+import { AddonType, AddonName, AddonDesc, MonthlyAmount, YearlyAmount } from "../util/AddonUtil"
 
-export default function Content03() {
 
-    const [selectedAddon, setSelectedAddon] = useState([]);
+export default function Content03({ selectedAddon, setSelectedAddon, isYearlyBilling }) {
 
     const addonClickListener = (addonType) => {
 
@@ -20,7 +19,7 @@ export default function Content03() {
 
     return (
         <>
-            <HeadingDiv title={"Pick Add-Ons"} desc={"Add ons help enhance your gaming experience."} />
+            <HeadingDiv title={"Pick Add-Ons (Optional)"} desc={"Add ons help enhance your gaming experience."} />
             <div className=' lg:m-0 lg:mx-10 m-7 flex flex-col'>
 
                 <div className='flex flex-col '>
@@ -28,18 +27,21 @@ export default function Content03() {
                     <AddOns
                         addonType={AddonType.SERVICE}
                         selected={selectedAddon}
+                        yearlyBilling={isYearlyBilling}
                         clickListener={(addonType) => addonClickListener(addonType)}
                     />
 
                     <AddOns
                         addonType={AddonType.STORAGE}
                         selected={selectedAddon}
+                        yearlyBilling={isYearlyBilling}
                         clickListener={(addonType) => addonClickListener(addonType)}
                     />
 
                     <AddOns
                         addonType={AddonType.PROFILE}
                         selected={selectedAddon}
+                        yearlyBilling={isYearlyBilling}
                         clickListener={(addonType) => addonClickListener(addonType)}
                     />
 
@@ -51,36 +53,12 @@ export default function Content03() {
     )
 }
 
-const AddonType = {
-    SERVICE: "SERVICE",
-    STORAGE: "STORAGE",
-    PROFILE: "PROFILE"
-}
-
-const AddonName = {
-    SERVICE: "Online Service",
-    STORAGE: "Larger Storage",
-    PROFILE: "Customizable Profile"
-}
-
-const AddonDesc = {
-    SERVICE: "Access to multiplayer games",
-    STORAGE: "Extra 5TB of cloud storage",
-    PROFILE: "Custom theme on your profile"
-}
-
-const AddonAmount = {
-    SERVICE: "+₹29/month",
-    STORAGE: "+₹39/month",
-    PROFILE: "+₹19/month"
-}
-
-
 const AddOns = (props) => {
 
     const isSelected = props.selected.includes(props.addonType);
     const borderColor = isSelected ? "border-marine-light-blue" : "border-light-gray";
     const backColor = isSelected ? "bg-extra-light-gray" : "bg-white";
+    const billingAmount = props.yearlyBilling ? YearlyAmount[props.addonType] : MonthlyAmount[props.addonType];
 
     return (
         <div
@@ -100,7 +78,7 @@ const AddOns = (props) => {
                 </div>
             </div>
 
-            <p className='lg:text-[14px] text-[12px] text-marine-light-blue font-medium'>{AddonAmount[props.addonType]}</p>
+            <p className='lg:text-[14px] text-[12px] text-marine-light-blue font-medium'>+₹{billingAmount}/{props.yearlyBilling ? "year" : "month" }</p>
         </div>
     )
 };

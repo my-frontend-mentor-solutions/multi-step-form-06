@@ -14,7 +14,7 @@ export default function StepsContainer() {
     }, [location.pathname]);
 
     return (
-        <div className="lg:bg-sidebar-desktop bg-cover lg:aspect-[0.4823] lg:flex-[3] lg:pl-5 lg:pt-7 lg:rounded-lg bg-sidebar-mobile aspect-[2.1]">
+        <div className="lg:bg-sidebar-desktop bg-cover lg:aspect-[0.4823] lg:flex-[3] lg:pl-5 lg:pt-7 lg:rounded-lg lg:h-auto bg-sidebar-mobile aspect-[2.1]">
 
             <div className='flex lg:flex-col justify-center'>
 

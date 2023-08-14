@@ -1,14 +1,14 @@
 import React from 'react'
-import arcadeImg from '../images/icon-arcade.svg';
-import advancedImg from '../images/icon-advanced.svg';
-import proImg from '../images/icon-pro.svg';
-import { useState } from 'react';
 import ButtonDiv from './ButtonDiv';
 import HeadingDiv from './HeadingDiv';
+import { PlanType, PlanName, MonthlyBill, YearlyBill, PlanImage } from "../util/PriceUtil.js";
+export default function Content02(
+    { selectedPlan, setSelectedPlan, isYearlyBilling, setIsYearlyBilling }
+) {
 
-export default function Content02() {
-    const [selectedPlan, setSelectedPlan] = useState("");
-    const [isYearlyBilling, setIsYearlyBilling] = useState(false);
+    const showError = () => {
+        alert("Plan not selected");
+    }
 
     const planClickListener = (planType) => {
         selectedPlan === planType ? setSelectedPlan("") : setSelectedPlan(planType);
@@ -57,41 +57,14 @@ export default function Content02() {
 
             </div>
 
-            <ButtonDiv prevRoute nextRoute={"addons"} />
+            <ButtonDiv prevRoute validate expectedData={selectedPlan} isReadyListener={(ready) => {
+                if (!ready) {
+                    showError();
+                }
+            } } nextRoute={"addons"} />
         </>
     )
 }
-
-const PlanType = {
-    ARCADE: "ARCADE",
-    ADVANCED: "ADVANCED",
-    PRO: "PRO"
-}
-
-const PlanName = {
-    ARCADE: "Arcade",
-    ADVANCED: "Advanced",
-    PRO: "Pro"
-}
-
-const MonthlyBill = {
-    ARCADE: 119,
-    ADVANCED: 179,
-    PRO: 249
-}
-
-const YearlyBill = {
-    ARCADE: 1190,
-    ADVANCED: 1790,
-    PRO: 2490
-}
-
-const PlanImage = {
-    ARCADE: arcadeImg,
-    ADVANCED: advancedImg,
-    PRO: proImg
-}
-
 
 const PlansDiv = (props) => {
 
