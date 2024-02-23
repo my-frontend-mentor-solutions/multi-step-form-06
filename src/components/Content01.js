@@ -26,7 +26,7 @@ export default function Content01() {
 
     const numberInputValidator = (value) => {
         value.trim() === "" ? setNumberError("Can't be empty") :  setNumberError("");
-        value.length < 10 ? setNumberError("Invalid Number") :  setNumberError("");
+        value.length === 10 ? setNumberError("") :  setNumberError("Invalid Number");
     }
     return (
         <>
